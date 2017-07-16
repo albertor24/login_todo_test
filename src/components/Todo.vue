@@ -2,13 +2,14 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>{{ user.name }}</h2>
+    <button v-on:click="isUserAuth()">Checalo</button>
     <button v-on:click="logout()">Logout</button>
   </div>
 </template>
 
 <!-- text/babel is needed for linter to accept es6 syntax inside .vue files -->
 <script type="text/babel">
-  import {getCurrentUser, logout as authLogout} from '../services/auth'
+  import {getCurrentUser, logout as authLogout, isUserAuth as wowy} from '../services/auth'
 
   let component = {
     name: 'hello',
@@ -21,6 +22,9 @@
     methods: {
       logout () {
         authLogout()
+      },
+      isUserAuth () {
+        console.log('Vamos', wowy(), getCurrentUser())
       }
     }
   }

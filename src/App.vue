@@ -10,6 +10,9 @@
 import Hello from './components/Hello'
 import Login from './components/Login'
 import Todo from './components/Todo'
+import {isUserAuth} from './services/auth'
+
+isUserAuth()
 
 export default {
   name: 'app',
