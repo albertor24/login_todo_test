@@ -7,7 +7,7 @@
         <label for="login-input">Username</label>
         <div class="input-group full-width" v-bind:class="{ 'has-error': tried }">
           <input v-model="username" type="text" class="form-control"
-                 id="login-input" :placeholder="placeholder" />
+                 v-on:focus="tried = false" id="login-input" :placeholder="placeholder" />
           <div v-bind:class="{ 'invisible': !tried }">
             <span class="glyphicon glyphicon-remove form-control-feedback"></span>
             <p class="error-msg">Wrong username. Please try again.</p>

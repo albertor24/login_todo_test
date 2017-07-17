@@ -55,6 +55,7 @@ function isUserAuth () {
 }
 
 export {
+  ACCESS_TOKEN_KEY,
   // functions
   isUserAuth,
   getCurrentUser,
@@ -67,6 +68,7 @@ function setLogin (foundUser) {
   let user = {
     id: foundUser.id,
     name: foundUser.name,
+    todos: [],
     date: Date.now()
   }
   user.secret = unsafeHash('encrypt', [user.id, user.date].reduce((t, c) => {
@@ -76,6 +78,7 @@ function setLogin (foundUser) {
 }
 
 function clearLogin () {
+  store.commit('setUser', null)
   localStorage.removeItem(ACCESS_TOKEN_KEY)
 }
 

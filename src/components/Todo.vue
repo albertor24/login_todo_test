@@ -1,10 +1,12 @@
 <template>
   <div class="container-fluid">
+    <!-- v-if="showModal" @close="showModal = false" -->
+    <new-todo v-if="showModal" @close="saveTodo"></new-todo>
     <div class="row">
       <div class="user-profile col-xs-12">
         <div class="pull-right">
           <h3>Welcome, {{user.name}}</h3>
-          <button v-on:click="newTodo()">Add To-Do</button>
+          <button v-on:click="newTodoModal()">Add To-Do</button>
           <button v-on:click="logout()">Logout</button>
         </div>
       </div>
@@ -38,13 +40,18 @@
 
 <!-- text/babel is needed for linter to accept es6 syntax inside .vue files -->
 <script type="text/babel">
+  import NewTodo from '@/components/NewTodo'
   import {getCurrentUser, logout as authLogout} from '../services/auth'
   import {getTodos} from '../services/todo'
 
   let component = {
     name: 'todo',
+    components: {
+      NewTodo
+    },
     data () {
       return {
+        showModal: false,
         user: getCurrentUser(),
         todos: []
       }
@@ -53,8 +60,20 @@
       logout () {
         authLogout()
       },
-      newTodo () {
-        console.log('Vamos corazones')
+      newTodoModal () {
+        this.showModal = true
+      },
+      saveTodo (todo) {
+        this.showModal = false
+        if (!todo) {
+          return
+        }
+        this.todos.unshift({
+          userId: this.user.id,
+          id: this.lastID + 1,
+          title: todo,
+          completed: false
+        })
       }
     },
     computed: {
@@ -63,6 +82,9 @@
       },
       todo () {
         return this.todos.filter(t => !t.completed)
+      },
+      lastID () {
+        return this.todos.reduce((t, c) => c.id > t ? c.id : t, 0)
       }
     },
     mounted () {
