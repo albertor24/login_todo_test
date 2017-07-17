@@ -14,7 +14,7 @@
                       maxlength="30" :placeholder="placeholder" />
               <div v-bind:class="{ 'invisible': !showWarn }">
                 <span class="glyphicon glyphicon-remove form-control-feedback"></span>
-                <p class="error-msg">Cannot submit empty "ToDo".</p>
+                <p class="error-msg">Please add some text</p>
               </div>
               <button class="modal-default-button btn btn-secondary" @click="$emit('close', '')">
                 Cancel

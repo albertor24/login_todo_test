@@ -1,7 +1,9 @@
 <template>
-  <div id="app">
-    <todo v-if="$store.state.auth"></todo>
-    <login v-else></login>
+    <div id="app">
+      <transition name="fade">
+        <todo v-if="$store.state.auth" key="todo"></todo>
+        <login v-else key="login"></login>
+      </transition>
   </div>
 </template>
 
@@ -31,5 +33,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+.fade-enter-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0
 }
 </style>

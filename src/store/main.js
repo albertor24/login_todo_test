@@ -8,17 +8,12 @@ const mutations = {
   },
   setUser (state, user) {
     state.user = user
-  },
-  setTodos (state, todos) {
-    console.log('Used')
-    state.todos = todos
   }
 }
 
 const state = {
   auth: false,
-  user: {},
-  todos: []
+  user: {}
 }
 
 export default new Vuex.Store({

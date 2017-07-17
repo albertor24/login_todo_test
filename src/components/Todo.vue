@@ -1,15 +1,20 @@
 <template>
   <div class="container-fluid">
-    <!-- v-if="showModal" @close="showModal = false" -->
     <new-todo v-if="showModal" @close="saveTodo"></new-todo>
-    <div class="row">
-      <div class="user-profile col-xs-12">
-        <div class="pull-right">
-          <h3>Welcome, {{user.name}}</h3>
-          <button v-on:click="newTodoModal()">Add To-Do</button>
-          <button v-on:click="logout()">Logout</button>
+    <div class="row user-profile">
+        <div class="col-xs-offset-4 col-xs-4 custom-logo">
+          <svg height="75" width="75">
+            <polygon class="orange" points="0,25 12.5,0 25,25"></polygon>
+            <polygon class="orange" points="37.5,25 50,0 62.5,25"></polygon>
+            <polygon class="black" points="0,25 62.5,25 62.5,50 0,50"></polygon>
+            <polygon class="black" points="0,50 31.25,75 62.5,50"></polygon>
+          </svg>
         </div>
-      </div>
+        <div class="col-xs-4 pull-right">
+          <h3>Welcome, {{user.name}}</h3>
+          <button type="button" class="btn btn-primary" v-on:click="newTodoModal()">Add To-Do</button>
+          <button type="button" class="btn btn-danger" v-on:click="logout()">Logout</button>
+        </div>
     </div>
     <div class="row">
       <div class="col-md-12">
@@ -68,12 +73,13 @@
         if (!todo) {
           return
         }
-        this.todos.unshift({
+        let newTodo = {
           userId: this.user.id,
           id: this.lastID + 1,
           title: todo,
           completed: false
-        })
+        }
+        this.todos.unshift(newTodo)
       }
     },
     computed: {
@@ -99,6 +105,9 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .custom-logo {
+    margin-top: 0.25em;
+  }
   .user-profile {
     padding-bottom: 1.25em;
     border-bottom: 0.15em solid grey;
@@ -113,7 +122,7 @@
   }
 
   .list-enter-active, .list-leave-active {
-    transition: all 1s;
+    transition: all 0.5s;
   }
   .list-enter, .list-leave-to /* .list-leave-active for <2.1.8 */ {
     opacity: 0;

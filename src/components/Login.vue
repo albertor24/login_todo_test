@@ -1,6 +1,13 @@
 <template>
   <div class="container-fluid">
-    <img src="../assets/logo.png">
+    <div class="login-logo">
+      <svg height="150" width="150">
+        <polygon class="orange" points="0,50 25,0 50,50"></polygon>
+        <polygon class="orange" points="75,50 100,0 125,50"></polygon>
+        <polygon class="black" points="0,50 125,50 125,100 0,100"></polygon>
+        <polygon class="black" points="0,100 62.5,150 125,100"></polygon>
+      </svg>
+    </div>
     <div class="row">
       <div class="col-md-offset-2 col-md-8">
         <h1 id="login-header">LOGIN TO VIEW OR ADD TO-DOS</h1>
@@ -48,6 +55,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .login-logo {
+    margin-top: 1em;
+  }
+
   h1, h2 {
     font-weight: normal;
   }
@@ -69,8 +80,4 @@
   .full-width {
     width: 100%;
   }
-
-  /*.login-btn {*/
-    /*margin-top: 0.25em;*/
-  /*}*/
 </style>

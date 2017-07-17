@@ -1,3 +1,29 @@
 h1, h2, h3, h4, label {
   color: #1b566a;
 }
+
+polygon {
+  fill:#ccc;
+  stroke:#fff; stroke-width:0.3;
+  transition: opacity .25s, fill .25s;
+}
+
+polygon.black {
+  fill: #333;
+}
+
+polygon.orange {
+  fill: orange;
+}
+
+polygon.black:hover {
+  opacity: 0.75;
+}
+
+polygon.orange:hover {
+  fill: #EE6C00;
+}
+
+button:hover {
+  transition: ease .5s;
+}

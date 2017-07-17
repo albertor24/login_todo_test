@@ -1,6 +1,5 @@
 import axios from 'axios'
 import {getCurrentUser} from './auth'
-// import store from '../store/main'
 
 function getTodos () {
   const todoUrl = 'https://jsonplaceholder.typicode.com/todos'
