@@ -20,7 +20,7 @@
                 Cancel
               </button>
               <button class="modal-default-button btn btn-primary" @click="savePost(todo)">
-                OK
+                Create
               </button>
               </div>
           </div>
