@@ -11,7 +11,7 @@
           <div class="todo-modal-body">
             <div class="input-group full-width" v-bind:class="{ 'has-error': showWarn }">
               <input v-on:focus="showWarn = false" v-model="todo" type="text" class="form-control"
-                      :placeholder="placeholder" />
+                      maxlength="30" :placeholder="placeholder" />
               <div v-bind:class="{ 'invisible': !showWarn }">
                 <span class="glyphicon glyphicon-remove form-control-feedback"></span>
                 <p class="error-msg">Cannot submit empty "ToDo".</p>

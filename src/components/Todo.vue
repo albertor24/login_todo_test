@@ -15,8 +15,8 @@
       <div class="col-md-12">
         <div class="row">
           <div class="col-md-6">
-            <ul id="example-1">
-              <h3>To-Dos</h3>
+            <h3>To-Dos</h3>
+            <ul>
               <li v-for="todo in todo">
                 <input type="checkbox" v-bind:id="todo.id" v-model="todo.completed">
                 <label v-bind:for="todo.id">{{ todo.title }}</label>
@@ -24,8 +24,8 @@
             </ul>
           </div>
           <div class="col-md-6">
-            <ul id="example-2">
-              <h3>Completed</h3>
+            <h3>Completed</h3>
+            <ul>
               <li v-for="todo in completed">
                 <input type="checkbox" v-bind:id="todo.id" v-model="todo.completed">
                 <label v-bind:for="todo.id">{{ todo.title }}</label>
