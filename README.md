@@ -47,7 +47,7 @@ Buttons, glyphs, inputs, grid, etc are default from bootstrap. Similarly, severa
 There are multiple transitions throughout the page. The most notable ones are when the modal shows, when an item is added/removed from the list, and when the user logs in
 
 #### Logo
-While the page "logo" resembles the one in gitlab, it was originally made to resemble the low-definition face of dog [https://i.stack.imgur.com/PgZfk.jpg?s=64&g=1].
+While the page "logo" resembles the one in gitlab, it was originally made to resemble the low-definition face of my dog [https://i.stack.imgur.com/PgZfk.jpg?s=64&g=1].
 
 #### Testing
 Currently, unit testing using karma is only done for the login page, and only covers standard rendering and login.
