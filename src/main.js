@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import store from './store/main'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+import './styles/style.css'
 
 Vue.config.productionTip = false
 

@@ -16,21 +16,21 @@
         <div class="row">
           <div class="col-md-6">
             <h3>To-Dos</h3>
-            <ul>
-              <li v-for="todo in todo">
+            <transition-group name="list" tag="ul">
+              <li v-bind:key="todo.id" v-for="todo in todo">
                 <input type="checkbox" v-bind:id="todo.id" v-model="todo.completed">
                 <label v-bind:for="todo.id">{{ todo.title }}</label>
               </li>
-            </ul>
+              </transition-group>
           </div>
           <div class="col-md-6">
             <h3>Completed</h3>
-            <ul>
-              <li v-for="todo in completed">
+            <transition-group name="list" tag="ul">
+              <li v-bind:key="todo.id" v-for="todo in completed">
                 <input type="checkbox" v-bind:id="todo.id" v-model="todo.completed">
                 <label v-bind:for="todo.id">{{ todo.title }}</label>
               </li>
-            </ul>
+            </transition-group>
           </div>
         </div>
       </div>
@@ -110,5 +110,13 @@
   input:checked+label {
     color: #999;
     text-decoration: line-through;
+  }
+
+  .list-enter-active, .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active for <2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
   }
 </style>
