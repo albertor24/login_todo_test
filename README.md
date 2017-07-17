@@ -2,7 +2,7 @@
 
 > Vuejs Webapp that implements a Todo with a login page
 
-For additional information regarding the coding design decisions, please go to the  [decisions section](#design-decisions)
+For additional information regarding the coding design decisions, please go to the  [decisions section](#decisions)
 
 ## Build Setup
 
