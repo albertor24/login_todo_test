@@ -43,7 +43,7 @@
     props: ['show'],
     methods: {
       savePost (todo) {
-        if (!todo) {
+        if (!todo.trim()) {
           this.showWarn = true
           return
         }
