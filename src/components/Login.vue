@@ -1,11 +1,20 @@
 <template>
   <div class="container-fluid">
-    <h1>LOGIN TO VIEW OR ADD TO-DOS</h1>
-    <div>
-      <label for="login-input">Username</label>
-      <input id="login-input" v-model="username" :placeholder="placeholder"/>
-      <button type="button" class="btn btn-secondary" v-on:click="login(username)">Submit</button>
-      <p v-if="tried">Wrong username. Please try again.</p>
+    <img src="../assets/logo.png">
+    <div class="row">
+      <div class="col-md-offset-2 col-md-8">
+        <h1 id="login-header">LOGIN TO VIEW OR ADD TO-DOS</h1>
+        <label for="login-input">Username</label>
+        <div class="input-group full-width" v-bind:class="{ 'has-error': tried }">
+          <input v-model="username" type="text" class="form-control"
+                 id="login-input" :placeholder="placeholder" />
+          <div v-bind:class="{ 'invisible': !tried }">
+            <span class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <p class="error-msg">Wrong username. Please try again.</p>
+          </div>
+          <button type="button" class="btn btn-secondary login-btn" v-on:click="login(username)">Login</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -44,6 +53,24 @@
   }
 
   label {
+    text-align: left;
     display: block;
   }
+
+  p {
+    display: inline-block;
+  }
+
+  p.error-msg {
+    margin: 0.5em 0;
+    color: red;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  /*.login-btn {*/
+    /*margin-top: 0.25em;*/
+  /*}*/
 </style>

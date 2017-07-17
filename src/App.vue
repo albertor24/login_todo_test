@@ -1,13 +1,11 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <todo v-if="$store.state.auth"></todo>
     <login v-else></login>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
 import Login from './components/Login'
 import Todo from './components/Todo'
 import {isUserAuth} from './services/auth'
@@ -17,7 +15,6 @@ isUserAuth()
 export default {
   name: 'app',
   components: {
-    Hello,
     Login,
     Todo
   },
@@ -34,6 +31,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
